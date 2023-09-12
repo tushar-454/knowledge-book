@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import BookmarkIcon from '../../assets/images/bookmark.svg';
 
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleBookmark }) => {
   const {
     cover,
     title,
@@ -36,13 +36,12 @@ const Blog = ({ blog }) => {
             src={BookmarkIcon}
             alt='bookmark'
             className='w-6 cursor-pointer'
+            onClick={() => handleBookmark(title, reading_time)}
           />
         </div>
       </div>
       <div className='title'>
-        <h1 className='text-3xl font-bold leading-[32px]'>
-          This is a single blog website {title}
-        </h1>
+        <h1 className='text-3xl font-bold leading-[32px]'>{title}</h1>
       </div>
       <div className='hashtag flex gap-4 py-2'>
         {hashtags.map((hash, index) => (
@@ -61,5 +60,6 @@ const Blog = ({ blog }) => {
 };
 Blog.propTypes = {
   blog: PropTypes.object,
+  handleBookmark: PropTypes.func,
 };
 export default Blog;
