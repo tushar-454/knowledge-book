@@ -1,8 +1,5 @@
-# React + Vite
+# Knowledge Book Single page application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This ia a simple single page web application with react. Which one practice a feature that is user can bookmark artical and track how about total spent time to read artical.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## live link: [knowledge_book.surge.sh](knowledge_book.surge.sh)
