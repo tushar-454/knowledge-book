@@ -35,7 +35,7 @@ const Blog = ({ blog, handleBookmark, handleReadTime }) => {
           <img
             src={BookmarkIcon}
             alt='bookmark'
-            className='w-6 cursor-pointer'
+            className='w-6 cursor-pointer active:scale-90 transition'
             onClick={() => handleBookmark(title, reading_time)}
           />
         </div>
