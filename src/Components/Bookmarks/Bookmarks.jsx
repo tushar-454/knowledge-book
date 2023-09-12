@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Bookmark from './Bookmark';
 
-const Bookmarks = ({ bookmarks, readingTime }) => {
+const Bookmarks = ({ bookmarks, readingTime, handleDelete }) => {
   return (
     <div className='w-full lg:w-1/3 py-8'>
       <div className='border border-[#6047EC] bg-[#6047EC1A] rounded-lg'>
@@ -18,7 +18,12 @@ const Bookmarks = ({ bookmarks, readingTime }) => {
           Bookmarked Blog: {bookmarks.length}
         </h1>
         {bookmarks.map((title, index) => (
-          <Bookmark key={index} title={title} />
+          <Bookmark
+            key={index}
+            index={index}
+            title={title}
+            handleDelete={handleDelete}
+          />
         ))}
       </div>
     </div>
@@ -27,5 +32,6 @@ const Bookmarks = ({ bookmarks, readingTime }) => {
 Bookmarks.propTypes = {
   bookmarks: PropTypes.array,
   readingTime: PropTypes.number,
+  handleDelete: PropTypes.func,
 };
 export default Bookmarks;

@@ -4,6 +4,7 @@ import {
   addReadTimeLS,
   getArrDataLS,
   getNumDataLS,
+  setDataLS,
 } from '../../Utils/LocalStorage';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Blog from './Blog';
@@ -31,6 +32,11 @@ const Blogs = () => {
     setReadingTime(readingTime + reading_time);
     addReadTimeLS('readingTime', reading_time);
   };
+  const handleDelete = (ourIndex) => {
+    const filter = bookmarks.filter((title, index) => index !== ourIndex);
+    setBookmarks([...filter]);
+    setDataLS('bookmarks', filter);
+  };
   return (
     <>
       <div className='mainWraper flex flex-col-reverse gap-8 lg:flex-row'>
@@ -47,7 +53,11 @@ const Blogs = () => {
             ))}
           </div>
         </div>
-        <Bookmarks bookmarks={bookmarks} readingTime={readingTime} />
+        <Bookmarks
+          bookmarks={bookmarks}
+          readingTime={readingTime}
+          handleDelete={handleDelete}
+        />
       </div>
     </>
   );
