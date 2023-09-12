@@ -32,7 +32,11 @@ const Blog = ({ blog }) => {
           <p className='text-[#11111199] text-xl font-medium'>
             {reading_time} min read
           </p>
-          <img src={BookmarkIcon} alt='bookmark' className='w-6' />
+          <img
+            src={BookmarkIcon}
+            alt='bookmark'
+            className='w-6 cursor-pointer'
+          />
         </div>
       </div>
       <div className='title'>
@@ -42,9 +46,9 @@ const Blog = ({ blog }) => {
       </div>
       <div className='hashtag flex gap-4 py-2'>
         {hashtags.map((hash, index) => (
-          <p key={index} className='text-[#11111199]'>
+          <a href='#' key={index} className='text-[#11111199]'>
             # {hash}
-          </p>
+          </a>
         ))}
       </div>
       <div className='markAsRead'>
