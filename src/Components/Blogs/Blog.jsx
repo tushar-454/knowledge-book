@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import BookmarkIcon from '../../assets/images/bookmark.svg';
 
-const Blog = ({ blog, handleBookmark }) => {
+const Blog = ({ blog, handleBookmark, handleReadTime }) => {
   const {
     cover,
     title,
@@ -51,7 +51,10 @@ const Blog = ({ blog, handleBookmark }) => {
         ))}
       </div>
       <div className='markAsRead'>
-        <button className='text-[#6047EC] text-xl font-semibold underline'>
+        <button
+          className='text-[#6047EC] text-xl font-semibold underline'
+          onClick={() => handleReadTime(reading_time)}
+        >
           Mark As Read
         </button>
       </div>
@@ -61,5 +64,6 @@ const Blog = ({ blog, handleBookmark }) => {
 Blog.propTypes = {
   blog: PropTypes.object,
   handleBookmark: PropTypes.func,
+  handleReadTime: PropTypes.func,
 };
 export default Blog;

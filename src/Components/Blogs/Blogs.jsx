@@ -23,10 +23,12 @@ const Blogs = () => {
     setBookmarks(getStoreBookmark);
     setReadingTime(getStorereadingTime);
   }, []);
-  const handleBookmark = (title, reading_time) => {
+  const handleBookmark = (title) => {
     setBookmarks([...bookmarks, title]);
-    setReadingTime(readingTime + reading_time);
     addArrDataLS('bookmarks', title);
+  };
+  const handleReadTime = (reading_time) => {
+    setReadingTime(readingTime + reading_time);
     addReadTimeLS('readingTime', reading_time);
   };
   return (
@@ -36,7 +38,12 @@ const Blogs = () => {
           <div className='blogsWrap'>
             {/* all blog here by fetch */}
             {blogs.map((blog, index) => (
-              <Blog key={index} blog={blog} handleBookmark={handleBookmark} />
+              <Blog
+                key={index}
+                blog={blog}
+                handleBookmark={handleBookmark}
+                handleReadTime={handleReadTime}
+              />
             ))}
           </div>
         </div>
