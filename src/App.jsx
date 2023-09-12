@@ -1,9 +1,11 @@
+import Blogs from './Components/Blogs/Blogs';
 import Header from './Components/Header/Header';
 
 const App = () => {
   return (
-    <div className='w-9/12 mx-auto'>
+    <div className='container px-4 mx-auto'>
       <Header />
+      <Blogs />
     </div>
   );
 };
