@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { addDataLS, addReadTimeLS, getDataLS } from '../../Utils/LocalStorage';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Blog from './Blog';
 
@@ -11,8 +12,17 @@ const Blogs = () => {
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
+  useEffect(() => {
+    const getStoreBookmark = getDataLS('bookmarks');
+    const getStorereadingTime = getDataLS('readingTime');
+    setBookmarks(getStoreBookmark);
+    setReadingTime(getStorereadingTime);
+  }, []);
   const handleBookmark = (title, reading_time) => {
     setBookmarks([...bookmarks, title]);
+    setReadingTime(readingTime + reading_time);
+    addDataLS('bookmarks', title);
+    addReadTimeLS('readingTime', reading_time);
     setReadingTime(readingTime + reading_time);
   };
   return (
