@@ -25,6 +25,10 @@ const Blogs = () => {
     setReadingTime(getStorereadingTime);
   }, []);
   const handleBookmark = (title) => {
+    const matchFind = bookmarks.find((st) => st === title);
+    if (matchFind) {
+      return 0;
+    }
     setBookmarks([...bookmarks, title]);
     addArrDataLS('bookmarks', title);
   };
