@@ -53,6 +53,7 @@ const Blogs = () => {
                 blog={blog}
                 handleBookmark={handleBookmark}
                 handleReadTime={handleReadTime}
+                bookmarks={bookmarks}
               />
             ))}
           </div>

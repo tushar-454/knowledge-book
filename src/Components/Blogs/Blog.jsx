@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Blog = ({ blog, handleBookmark, handleReadTime }) => {
+const Blog = ({ blog, handleBookmark, handleReadTime, bookmarks }) => {
   const {
     cover,
     title,
@@ -10,6 +10,7 @@ const Blog = ({ blog, handleBookmark, handleReadTime }) => {
     reading_time,
     hashtags,
   } = blog;
+  const isBookmark = bookmarks.includes(title);
   return (
     <div className='py-8 border-b border-[#1111111A]'>
       <div className='coverImg w-full'>
@@ -41,7 +42,7 @@ const Blog = ({ blog, handleBookmark, handleReadTime }) => {
             onClick={() => handleBookmark(title)}
           >
             <path
-              fill='white'
+              fill={isBookmark ? 'blue' : 'white'}
               d='M17.593 3.322C18.693 3.45 19.5 4.399 19.5 5.507V21L12 17.25L4.5 21V5.507C4.5 4.399 5.306 3.45 6.407 3.322C10.1232 2.89063 13.8768 2.89063 17.593 3.322Z'
               stroke='#111111'
               strokeOpacity='0.6'
@@ -77,5 +78,6 @@ Blog.propTypes = {
   blog: PropTypes.object,
   handleBookmark: PropTypes.func,
   handleReadTime: PropTypes.func,
+  bookmarks: PropTypes.array,
 };
 export default Blog;
